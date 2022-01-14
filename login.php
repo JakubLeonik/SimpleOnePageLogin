@@ -12,7 +12,11 @@ if(!empty($_POST['login']) && !empty($_POST['password'])){
     $user = $database->checkUser($login, $password);
     if($user == null) Err::throwError('Wrong login or password!', 'index.php');
     else{
-        echo 'Zalogowano!';
+        $_SESSION['logged'] = 'logged';
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_login'] = $user['login'];
+        header('Location: home.php');
+        exit();
     }
     unset($database);
 } else {

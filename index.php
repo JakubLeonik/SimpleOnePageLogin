@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION['logged'])){
+    header('Location: home.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -16,7 +23,6 @@
                 <input type="submit" value="Log in"/>
             </form>
             <?php
-                session_start();
                 if(isset($_SESSION['error'])){
                     echo '<div class="error">'.$_SESSION['error'].'</div>';
                     unset($_SESSION['error']);
