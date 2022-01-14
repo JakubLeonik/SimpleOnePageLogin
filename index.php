@@ -11,10 +11,17 @@
         <header>Simple One Page Login</header>
         <main>
             <form action="login.php" method="POST">
-                <input type="text" pattern="[A-Za-z0-9]" required />
-                <input type="password" pattern="[A-Za-z0-9]" required />
+                <input type="text" name="login" pattern="[a-zA-Z0-9]+" required />
+                <input type="password" name="password" required />
                 <input type="submit" value="Log in"/>
             </form>
+            <?php
+                session_start();
+                if(isset($_SESSION['error'])){
+                    echo '<div class="error">'.$_SESSION['error'].'</div>';
+                    unset($_SESSION['error']);
+                }
+            ?>
         </main>
     </div>
 </body>
