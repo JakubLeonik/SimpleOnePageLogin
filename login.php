@@ -9,6 +9,11 @@ if(!empty($_POST['login']) && !empty($_POST['password'])){
     $password = $_POST['password'];
     if(!ctype_alnum($login)) Err::throwError('Login has to be aplhanumeric!', 'index.php');
     $database = new Database;
+    $user = $database->checkUser($login, $password);
+    if($user == null) Err::throwError('Wrong login or password!', 'index.php');
+    else{
+        echo 'Zalogowano!';
+    }
     unset($database);
 } else {
     Err::throwError('Wrong request parameters', 'index.php');
