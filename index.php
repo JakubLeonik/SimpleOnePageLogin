@@ -22,14 +22,14 @@ if(isset($_SESSION['logged'])){
             <form action="login.php" method="POST" class="col-sm-8 col-md-6 col-lg-4 text-center">
                 <input type="text" name="login" pattern="[a-zA-Z0-9]+" class="w-100" required /> <br /><br />
                 <input type="password" name="password" class="w-100" required /> <br /><br />
-                <input type="submit" value="Log in" class="w-75"/>
-            </form>
-            <?php
+                <input type="submit" value="Log in" class="w-75"/> <br /><br />
+                <?php
                 if(isset($_SESSION['error'])){
                     echo '<div class="error">'.$_SESSION['error'].'</div>';
                     unset($_SESSION['error']);
                 }
             ?>
+            </form>
         </main>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
