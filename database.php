@@ -19,13 +19,15 @@ class Database{
         $login = $this->connection->real_escape_string($login);
         $password = $this->connection->real_escape_string($password);
         //build and execute statement
-        $stmt = $this->connection->prepare("SELECT * FROM users WHERE login=? AND password=?");
-        $stmt->bind_param('ss', $login, $password);
+        $stmt = $this->connection->prepare("SELECT * FROM users WHERE login=?");
+        $stmt->bind_param('s', $login);
         $stmt->execute();
         //check result
         $result = $stmt->get_result();
         if($result->num_rows > 0){
-            return $result->fetch_assoc();
+            $user = $result->fetch_assoc();
+            if(password_verify($password, $user['password'])) return $user;
+            else return null;
         } else {
             return null;
         }

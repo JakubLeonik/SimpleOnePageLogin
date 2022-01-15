@@ -25,7 +25,7 @@ if(isset($_SESSION['logged'])){
                 <input type="submit" value="Log in" class="w-75"/> <br /><br />
                 <?php
                     if(isset($_SESSION['error'])){
-                        echo '<div class="error">'.$_SESSION['error'].'</div>';
+                        echo '<div class="error">'.$_SESSION['error'].'</div><br />';
                         unset($_SESSION['error']);
                     }
                 ?>

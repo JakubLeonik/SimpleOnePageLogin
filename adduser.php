@@ -11,6 +11,7 @@ if(!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['confi
     if(strlen($login)<4 || strlen($login)>20) Err::throwError('Login must be between 4 and 20 characters', 'registration.php');
     if(strlen($password)<8) Err::throwError('Password must have more than 8 characters', 'registration.php');
     if(!($password === $confirmPassword)) Err::throwError('Password and confirm password have to be the same', 'registration.php');
+    $password = password_hash($password, PASSWORD_DEFAULT);
     $database = new Database;
     if($database->addUser($login, $password)){
         $_SESSION['success'] = true;
