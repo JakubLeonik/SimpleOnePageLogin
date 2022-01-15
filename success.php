@@ -1,9 +1,11 @@
 <?php
 session_start();
-if(isset($_SESSION['logged'])){
-    header('Location: home.php');
+if(!isset($_SESSION['success'])){
+    unset($_SESSION['success']);
+    header('Location: index.php');
     exit();
 }
+unset($_SESSION['success']);
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -19,7 +21,7 @@ if(isset($_SESSION['logged'])){
     <div id="container" class="col-12 vh-100">
         <header class="col-12 text-center text-white p-5">Success!</header>
         <main class="mx-auto text-dark d-flex py-5 justify-content-center text-center col-10">
-            Now you can <a class="text-dark" href="index.php">login</a> to Simple One Page Login!
+            Now you can&nbsp;<a class="text-dark" href="index.php">login</a>&nbsp;to Simple One Page Login!
         </main>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
