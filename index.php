@@ -1,4 +1,5 @@
 <?php
+//check if user is logged - if yes, redict user to home
 session_start();
 if(isset($_SESSION['logged'])){
     header('Location: home.php');
@@ -24,6 +25,7 @@ if(isset($_SESSION['logged'])){
                 <input type="password" name="password" placeholder="Password" class="w-100" required /> <br /><br />
                 <input type="submit" value="Log in" class="w-75"/> <br /><br />
                 <?php
+                    //show login errors
                     if(isset($_SESSION['error'])){
                         echo '<div class="error">'.$_SESSION['error'].'</div><br />';
                         unset($_SESSION['error']);

@@ -1,4 +1,5 @@
 <?php
+//check if user is logged - if no, redict login page
 session_start();
 if(!isset($_SESSION['logged'])){
     header('Location: index.php');

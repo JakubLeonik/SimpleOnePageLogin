@@ -1,4 +1,5 @@
 <?php
+//check if user is logged - if yes, redict user to home
 session_start();
 if(isset($_SESSION['logged'])){
     header('Location: home.php');

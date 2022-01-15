@@ -1,4 +1,5 @@
 <?php
+//check if registration ended by success
 session_start();
 if(!isset($_SESSION['success'])){
     unset($_SESSION['success']);

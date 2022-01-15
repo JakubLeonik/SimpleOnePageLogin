@@ -4,7 +4,7 @@ session_start();
 require_once('error.php');
 require_once('database.php');
 if(!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['confirmPassword'])){
-    //check login and password
+    //check login and password + sanityze
     $login = $_POST['login'];
     $password = $_POST['password'];
     $confirmPassword = $_POST['confirmPassword'];
