@@ -17,20 +17,9 @@ if(isset($_SESSION['logged'])){
 </head>
 <body>
     <div id="container" class="col-12 vh-100">
-        <header class="col-12 text-center text-white p-5">Simple One Page Login</header>
+        <header class="col-12 text-center text-white p-5">Success!</header>
         <main class="mx-auto text-dark d-flex py-5 justify-content-center text-center col-10">
-            <form action="login.php" method="POST" class="col-sm-8 col-md-6 col-lg-4 text-center">
-                <input type="text" name="login" placeholder="Login" pattern="[a-zA-Z0-9]+" class="w-100" required /> <br /><br />
-                <input type="password" name="password" placeholder="Password" class="w-100" required /> <br /><br />
-                <input type="submit" value="Log in" class="w-75"/> <br /><br />
-                <?php
-                    if(isset($_SESSION['error'])){
-                        echo '<div class="error">'.$_SESSION['error'].'</div>';
-                        unset($_SESSION['error']);
-                    }
-                ?>
-                <a class="text-dark" href="registration.php">Registration</a>
-            </form>
+            Now you can <a class="text-dark" href="index.php">login</a> to Simple One Page Login!
         </main>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

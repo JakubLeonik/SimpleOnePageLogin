@@ -17,19 +17,19 @@ if(isset($_SESSION['logged'])){
 </head>
 <body>
     <div id="container" class="col-12 vh-100">
-        <header class="col-12 text-center text-white p-5">Simple One Page Login</header>
+        <header class="col-12 text-center text-white p-5">Registration to Simple One Page Login</header>
         <main class="mx-auto text-dark d-flex py-5 justify-content-center text-center col-10">
-            <form action="login.php" method="POST" class="col-sm-8 col-md-6 col-lg-4 text-center">
-                <input type="text" name="login" placeholder="Login" pattern="[a-zA-Z0-9]+" class="w-100" required /> <br /><br />
-                <input type="password" name="password" placeholder="Password" class="w-100" required /> <br /><br />
-                <input type="submit" value="Log in" class="w-75"/> <br /><br />
+            <form action="adduser.php" method="POST" class="col-sm-8 col-md-6 col-lg-4 text-center">
+                Login: <input type="text" name="login" pattern="[a-zA-Z0-9]+" class="w-100" required /> <br /><br />
+                Password: <input type="password" name="password" class="w-100" required /> <br /><br />
+                Confirm password: <input type="password" name="confirmPassword" class="w-100" required /> <br /><br />
+                <input type="submit" value="Register" class="w-75"/> <br /><br />
                 <?php
-                    if(isset($_SESSION['error'])){
-                        echo '<div class="error">'.$_SESSION['error'].'</div>';
-                        unset($_SESSION['error']);
-                    }
-                ?>
-                <a class="text-dark" href="registration.php">Registration</a>
+                if(isset($_SESSION['error'])){
+                    echo '<div class="error">'.$_SESSION['error'].'</div>';
+                    unset($_SESSION['error']);
+                }
+            ?>
             </form>
         </main>
     </div>

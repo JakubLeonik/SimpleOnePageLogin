@@ -30,6 +30,17 @@ class Database{
             return null;
         }
     }
+    //add user
+    function addUser($login, $password){
+        //sanityze
+        $login = $this->connection->real_escape_string($login);
+        $password = $this->connection->real_escape_string($password);
+        //build and execute statement
+        $stmt = $this->connection->prepare("INSERT INTO users (login, password) values (?, ?)");
+        $stmt->bind_param('ss', $login, $password);
+        $status = $stmt->execute();
+        return $status;
+    }
     //close connection
     function __destruct(){
         $this->connection->close();
